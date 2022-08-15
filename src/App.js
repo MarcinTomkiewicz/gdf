@@ -11,12 +11,14 @@ import { useEffect } from "react";
 import { guestsVip, pageTitles } from "./utils/backend";
 import { Clubs } from "./Clubs/Clubs";
 import { Conventions } from "./Conventions/Conventions";
+import { HelperForm } from "./HelperForm/HelperForm";
+import { VendorForm } from "./VendorForm/VendorForm";
 
 function App() {
   let location = useLocation();
 
   useEffect(() => {
-    pageTitles.map((page) => {
+    pageTitles.forEach((page) => {
       if (page.name === location.pathname)
         document.title = `${page.title} | Gliwickie Dni Fantastyki`;
     });
@@ -41,10 +43,10 @@ function App() {
             <Route path="/clubs" element={<Clubs />} />
             <Route path="/conventions" element={<Conventions />} />
             <Route path="/vendors" element={<Home />} />
-            <Route path="/submit_vendor" element={<Home />} />
+            <Route path="/submit_vendor" element={<VendorForm />} />
             <Route path="/helpers" element={<Home />} />
             <Route path="/fun_stuff" element={<Home />} />
-            <Route path="/submit_helper" element={<Home />} />
+            <Route path="/submit_helper" element={<HelperForm />} />
             <Route path="/media" element={<Home />} />
             <Route path="/press" element={<Home />} />
             <Route path="/media_entrance" element={<Home />} />
